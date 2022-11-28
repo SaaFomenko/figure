@@ -76,4 +76,20 @@ class IsoscelesTriangle : public Triangle
 		std::string getStr() override;
 };
 
+class IquilateralTriangle : public Triangle
+{
+	protected:
+		int a = 30;
+		int b = a
+		int c = a;
+		int A = 60;
+		int B = A;
+		int C = A;
+
+	public:
+		static const std::string name;
+
+		std::string getStr() override;
+};
+
 
