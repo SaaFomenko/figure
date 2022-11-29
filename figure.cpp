@@ -6,7 +6,7 @@
 const std::string Triangle::name = "Треугольник: ";
 const std::string RightTriangle::name = "Прямоугольный треугольник: ";
 const std::string IsoscelesTriangle::name = "Равнобедренный треугольник: ";
-//const std::string IsoscelesTriangle::name = "Равнобедренный треугольник: ";
+const std::string IquilateralTriangle::name = "Равносторонний треугольник: ";
 const std::string Triangle::sides_lable = "Стороны: ";
 const std::string Triangle::angles_lable = "Углы: ";
 
