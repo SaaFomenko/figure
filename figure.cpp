@@ -2,6 +2,8 @@
 #include "define.h"
 
 
+const std::string row_separator = "\n";
+
 const std::string Triangle::name = "Треугольник: ";
 const std::string Triangle::sides_lable = "Стороны: ";
 const std::string Triangle::a_lable = " a=";
@@ -22,26 +24,36 @@ const std::string Quadrangle::d_lable = " d=";
 const std::string Quadrangle::D_lable = " D=";
 
 const std::string RightQuadrangle::name = "Прямоугольник: ";
-const std::string Quadrat::name = "Квадрат: ";
+const std::string Quadrate::name = "Квадрат: ";
 const std::string Parallelogram::name = "Параллелограм: ";
 const std::string Rhomb::name = "Ромб: ";
 
 std::string ParamToStr(
-		const int& param,
-		std::string& label_param,
+		const int* param,
+		std::string* lable_param,
 		int size
 		)
 {
 	std::string result = "";
-	std::string separator = "";
-	int center_index = size/2 - 1;
-
-	for (int i = 0; i < size; ++i)
+	
+	if (param != nullptr && lable_param != nullptr)
 	{
-		const std::string str_param = std::to_string(param[i]);
-		if (i == center_index) separator = "\n";
-		result += label_param[i] + str_param + separator;
+		std::string separator = "";
+		int center_index = size/2 - 1;
+  
+		for (int i = 0; i < size; ++i)
+		{
+			const std::string str_param = std::to_string(param[i]);
+			if (i == center_index) separator = row_separator;
+			result += lable_param[i] + str_param + separator;
+		}
 	}
+	else
+	{
+		result = "none";
+	}
+
+	return result;
 }
 
 std::string Figure::getSides()
@@ -56,11 +68,41 @@ std::string Triangle::getSides()
 	return name + s;
 }
 
-std::string RightTriangle::getSides()
+std::string Triangle::getStr()
 {
-	const std::string s = std::to_string(sides);
-	return name + s;
+	int param[] = {a, b, c, A, B, C};
+	int size = sizeof(param) / sizeof(param[0]);
+		std::string lable_param[] = {
+		sides_lable + a_lable,
+		b_lable,
+		c_lable,
+		angles_lable + A_lable,
+		B_lable,
+		C_lable,
+	};
+
+	std::string s = ParamToStr(param, lable_param, size);
+	return name + s + row_separator;
 }
+
+
+std::string RightTriangle::getStr()
+{
+	int param[] = {a, b, c, A, B, C};
+	int size = sizeof(param) / sizeof(param[0]);
+		std::string lable_param[] = {
+		sides_lable + a_lable,
+		b_lable,
+		c_lable,
+		angles_lable + A_lable,
+		B_lable,
+		C_lable,
+	};
+
+	std::string s = ParamToStr(param, lable_param, size);
+	return name + s + row_separator;
+}
+
 
 std::string Quadrangle::getSides()
 {
