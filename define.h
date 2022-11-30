@@ -48,6 +48,8 @@ class Quadrangle : protected Triangle
 
 	public:
 		static const std::string name;
+		static const std::string d_lable;
+		static const std::string D_lable;
 
 		std::string getSides() override;
 		std::string getStr() override;
