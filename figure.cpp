@@ -72,7 +72,7 @@ std::string Triangle::getStr()
 {
 	int param[] = {a, b, c, A, B, C};
 	int size = sizeof(param) / sizeof(param[0]);
-		std::string lable_param[] = {
+	std::string lable_param[] = {
 		sides_lable + a_lable,
 		b_lable,
 		c_lable,
