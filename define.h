@@ -8,8 +8,8 @@ class Figure
 	public:
 		const std::string lable = "Количество сторон: ";
 		std::string str = "";
-		void getStr(std::string name, int sides);
-		virtual void getSides();
+		void getStr(std::string name, const int sides);
+		Figure();
 };
 
 class Triangle : public Figure
@@ -18,7 +18,7 @@ class Triangle : public Figure
 		const int sides = 3;
 		const std::string name = "Треугольник: ";
 	public:
-		void getSides() override;
+		Triangle();
 };
 
 class Quadrangle : public Triangle
@@ -27,5 +27,5 @@ class Quadrangle : public Triangle
 		const int sides = 4;
 		const std::string name = "Четырехугольник: ";
 	public:
-		void getSides() override;
+		Quadrangle();
 };

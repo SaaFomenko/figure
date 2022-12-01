@@ -17,7 +17,6 @@ int main() {
 
 	for (Figure* figure : figures)
 	{
-		figure->getSides();
 		std::cout << figure->str << std::endl;
 	}
 
