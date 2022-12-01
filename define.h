@@ -21,8 +21,13 @@ class Triangle : public Figure
 		const int A = 50;
 		const int B = 60;
 		const int C = 70;
+		int* param = nullptr;
+		int size = 0;
+		std::string* lable_param = nullptr;
+		virtual void paramArr();
 
 	public:
+		Triangle();
 		static const std::string name;
 		static const std::string sides_lable;
 		static const std::string angles_lable;
@@ -33,6 +38,7 @@ class Triangle : public Figure
 		static const std::string B_lable;
 		static const std::string C_lable;
 		
+		std::string makeStr(int* param, std::string* lable_param, int size);
 		std::string getSides() override;
 		virtual std::string getStr();
 };
@@ -57,6 +63,7 @@ class Quadrangle : protected Triangle
 
 class RightTriangle : public Triangle
 {
+	using Triangle::Triangle;
 	protected:
 		const int C = 90;
 
@@ -76,6 +83,7 @@ class IsoscelesTriangle : public Triangle
 	public:
 		static const std::string name;
 
+		using Triangle::Triangle();
 		std::string getStr() override;
 };
 

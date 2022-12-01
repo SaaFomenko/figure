@@ -28,8 +28,32 @@ const std::string Quadrate::name = "Квадрат: ";
 const std::string Parallelogram::name = "Параллелограм: ";
 const std::string Rhomb::name = "Ромб: ";
 
-std::string ParamToStr(
-		const int* param,
+void Triangle::paramArr()
+{
+	int param[] = {a, b, c, A, B, C};
+	this->param = param;
+
+	int size = sizeof(param) / sizeof(param[0]);
+	this->size = size;
+
+	std::string lable_param[] = {
+		sides_lable + a_lable,
+		b_lable,
+		c_lable,
+		angles_lable + A_lable,
+		B_lable,
+		C_lable,
+	};
+	this->lable_param = lable_param;
+}
+
+Triangle::Triangle()
+{
+	paramArr();
+}
+
+std::string Triangle::makeStr(
+		int* param,
 		std::string* lable_param,
 		int size
 		)
@@ -53,7 +77,17 @@ std::string ParamToStr(
 		result = "none";
 	}
 
-	return result;
+	return name + result;
+}
+
+std::string Triangle::getStr()
+{
+	return makeStr(param, lable_param, size);
+}
+
+std::string RightTriangle::getStr()
+{
+	return makeStr(param, lable_param, size);
 }
 
 std::string Figure::getSides()
@@ -67,42 +101,6 @@ std::string Triangle::getSides()
 	const std::string s = std::to_string(sides);
 	return name + s;
 }
-
-std::string Triangle::getStr()
-{
-	int param[] = {a, b, c, A, B, C};
-	int size = sizeof(param) / sizeof(param[0]);
-	std::string lable_param[] = {
-		sides_lable + a_lable,
-		b_lable,
-		c_lable,
-		angles_lable + A_lable,
-		B_lable,
-		C_lable,
-	};
-
-	std::string s = ParamToStr(param, lable_param, size);
-	return name + s + row_separator;
-}
-
-
-std::string RightTriangle::getStr()
-{
-	int param[] = {a, b, c, A, B, C};
-	int size = sizeof(param) / sizeof(param[0]);
-		std::string lable_param[] = {
-		sides_lable + a_lable,
-		b_lable,
-		c_lable,
-		angles_lable + A_lable,
-		B_lable,
-		C_lable,
-	};
-
-	std::string s = ParamToStr(param, lable_param, size);
-	return name + s + row_separator;
-}
-
 
 std::string Quadrangle::getSides()
 {
