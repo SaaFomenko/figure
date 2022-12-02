@@ -50,6 +50,7 @@ void Triangle::paramArr()
 Triangle::Triangle()
 {
 	paramArr();
+	str = makeStr(param, lable_param, size);
 }
 
 std::string Triangle::makeStr(
@@ -80,15 +81,51 @@ std::string Triangle::makeStr(
 	return name + result;
 }
 
-std::string Triangle::getStr()
+RightTriangle::RightTriangle()
 {
-	return makeStr(param, lable_param, size);
+	paramArr();
+	str = makeStr(param, lable_param, size);
 }
 
-std::string RightTriangle::getStr()
+IsoscelesTriangle::IsoscelesTriangle()
 {
-	return makeStr(param, lable_param, size);
+	paramArr();
+	str = makeStr(param, lable_param, size);
 }
+
+IquilateralTriangle::IquilateralTriangle()
+{
+	paramArr();
+	str = makeStr(param, lable_param, size);
+}
+
+void Quadrangle::paramArr()
+{
+	int param[] = {a, b, c, A, B, C, D};
+	this->param = param;
+
+	int size = sizeof(param) / sizeof(param[0]);
+	this->size = size;
+
+	std::string lable_param[] = {
+		sides_lable + a_lable,
+		b_lable,
+		c_lable,
+		d_lable,
+		angles_lable + A_lable,
+		B_lable,
+		C_lable,
+		D_lable,
+	};
+	this->lable_param = lable_param;
+}
+
+Quadrangle::Quadrangle()
+{
+	paramArr();
+	str = makeStr(param, lable_param, size);
+}
+
 
 std::string Figure::getSides()
 {

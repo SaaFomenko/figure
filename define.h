@@ -24,6 +24,7 @@ class Triangle : public Figure
 		int* param = nullptr;
 		int size = 0;
 		std::string* lable_param = nullptr;
+		std::string str = "";
 		virtual void paramArr();
 
 	public:
@@ -40,7 +41,7 @@ class Triangle : public Figure
 		
 		std::string makeStr(int* param, std::string* lable_param, int size);
 		std::string getSides() override;
-		virtual std::string getStr();
+//		virtual std::string getStr();
 };
 
 class Quadrangle : protected Triangle
@@ -51,26 +52,28 @@ class Quadrangle : protected Triangle
 	protected:
 		const int d = 40;
 		const int D = 80;
+		void paramArr() override;
 
 	public:
+		Quadrangle();
 		static const std::string name;
 		static const std::string d_lable;
 		static const std::string D_lable;
 
 		std::string getSides() override;
-		std::string getStr() override;
+//		std::string getStr() override;
 };
 
 class RightTriangle : public Triangle
 {
-	using Triangle::Triangle;
+//	using Triangle::Triangle;
 	protected:
 		const int C = 90;
 
 	public:
+		RightTriangle();
 		static const std::string name;
-
-		std::string getStr() override;
+//		std::string getStr() override;
 };
 
 class IsoscelesTriangle : public Triangle
@@ -81,10 +84,10 @@ class IsoscelesTriangle : public Triangle
 		const int C = 90;
 
 	public:
+		IsoscelesTriangle();
 		static const std::string name;
-
-		using Triangle::Triangle();
-		std::string getStr() override;
+//		using Triangle::Triangle;
+//		std::string getStr() override;
 };
 
 class IquilateralTriangle : public Triangle
@@ -98,12 +101,13 @@ class IquilateralTriangle : public Triangle
 		const int C = A;
 
 	public:
+		IquilateralTriangle();
 		static const std::string name;
 
-		std::string getStr() override;
+//		std::string getStr() override;
 };
 
-class RightQuadrangle : public RightTriangle
+class RightQuadrangle : public RightTriangle,  public Quadrangle
 {
 	protected:
 		const int c = a;
@@ -111,11 +115,12 @@ class RightQuadrangle : public RightTriangle
 		const int A = C;
 		const int B = C;
 		const int D = C;
+//		void paramArr() override;
 
 	public:
+		RightQuadrangle();
 		static const std::string name;
-
-		std::string getStr() override;
+//		std::string getStr() override;
 };
 
 class Quadrate : public RightQuadrangle
@@ -125,9 +130,9 @@ class Quadrate : public RightQuadrangle
 		const int c = b;
 
 	public:
+		Quadrate();
 		static const std::string name;
-
-		std::string getStr() override;
+//		std::string getStr() override;
 };
 
 class Parallelogram : public Quadrate
@@ -143,9 +148,9 @@ class Parallelogram : public Quadrate
 		const int D = B;
 
 	public:
+		Parallelogram();
 		static const std::string name;
-
-		std::string getStr() override;
+//		std::string getStr() override;
 };
 
 class Rhomb : public Parallelogram
@@ -155,7 +160,7 @@ class Rhomb : public Parallelogram
 		const int c = b;
 		
 	public:
+		Rhomb();
 		static const std::string name;
-
-		std::string getStr() override;
+//		std::string getStr() override;
 };
