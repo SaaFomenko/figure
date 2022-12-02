@@ -10,11 +10,6 @@ Figure::Figure()
 {
 	getStr(name, sides);
 }
-/*void Figure::getSides()
-{
-	getStr(name, sides);
-}
-*/
 
 Triangle::Triangle()
 {
@@ -25,13 +20,3 @@ Quadrangle::Quadrangle()
 {
 	getStr(name, sides);
 }
-//void Triangle::getSides()
-//{
-	//getStr(name, sides);
-//	return str;
-//}
-/*
-void Quadrangle::getSides(){
-	getStr(name, sides);
-}
-*/
