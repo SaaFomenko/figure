@@ -1,22 +1,46 @@
 #include <string>
 
+enum side {a, b, c, d};
+enum angle {A, B, C, D};
+
+struct lable
+{
+	static const std::string sides;
+	static const std::string angles;
+	static const std::string a;
+	static const std::string b;
+	static const std::string c;
+	static const std::string d;
+	static const std::string A;
+	static const std::string B;
+	static const std::string C;	
+	static const std::string D;	
+};
+
 class Figure
 {
 	private:
+		const std::string name = "Фигура";
+
+	protected:
 		const int sides = 0;
-		const std::string name = "Фигура: ";
+//		const int* side;
+//		const int* angle;
+		void getStr(const int* side, const int* angle, const int sides);
+
 	public:
-		const std::string lable = "Количество сторон: ";
 		std::string str = "";
-		void getStr(std::string name, const int sides);
-		Figure();
+//		Figure();
 };
 
 class Triangle : public Figure
 {
 	private:
+		const std::string name = "Треугольник";
+
+	protected:
 		const int sides = 3;
-		const std::string name = "Треугольник: ";
+
 	public:
 		Triangle();
 };
@@ -24,8 +48,11 @@ class Triangle : public Figure
 class Quadrangle : public Triangle
 {
 	private:
+		const std::string name = "Четырехугольник";
+
+	protected:
 		const int sides = 4;
-		const std::string name = "Четырехугольник: ";
+
 	public:
 		Quadrangle();
 };
