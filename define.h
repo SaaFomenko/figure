@@ -35,6 +35,8 @@ class Figure
 				);
 
 	public:
+		Figure() = default;
+		Figure(const int sides = 0);
 		std::string str = "";
 };
 

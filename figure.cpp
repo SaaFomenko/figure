@@ -52,7 +52,17 @@ void Figure::getStr(
 	str += "\n";
 }
 
-Triangle::Triangle()
+Figure::Figure(const int sides) : sides{sides} {}
+
+Triangle::Triangle(
+		const int a,
+		const int b,
+		const int c,
+		const int A,
+		const int B,
+		const int C,
+		const int sides
+		) : a{a}, b{b}, c{c}, A{A}, B{B}, C{C}
 {
 	int side[sides] = {a, b, c};
 	int angle[sides] = {A, B, C};
