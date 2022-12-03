@@ -26,7 +26,12 @@ class Figure
 		const int sides = 0;
 //		const int* side;
 //		const int* angle;
-		void getStr(const int* side, const int* angle, const int sides);
+		void getStr(
+				const int* side,
+				const int* angle,
+				const int sides,
+				const std::string name
+				);
 
 	public:
 		std::string str = "";

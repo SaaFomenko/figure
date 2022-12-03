@@ -1,0 +1,3 @@
+all:
+	clang main.cpp figure.cpp -std=c++11 -o main.out
+

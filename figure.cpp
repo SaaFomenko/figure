@@ -14,7 +14,12 @@ const std::string lable::B = " B=";
 const std::string lable::C = " C=";
 const std::string lable::D = " D=";
 
-void Figure::getStr(const int* side, const int* angle, const int sides)
+void Figure::getStr(
+		const int* side,
+		const int* angle,
+		const int sides,
+		const std::string name
+		)
 {
 	const std::string lable_side[] = {
 		lable::a,
@@ -61,7 +66,7 @@ Triangle::Triangle()
 	angle[angle::A] = 50;
 	angle[angle::B] = 60;
 	angle[angle::C] = 70;
-	getStr(side, angle, sides);
+	getStr(side, angle, sides, name);
 }
 
 Quadrangle::Quadrangle()
@@ -77,5 +82,5 @@ Quadrangle::Quadrangle()
 	angle[angle::C] = 70;
 	angle[angle::D] = 80;
 
-	getStr(side, angle, sides);
+	getStr(side, angle, sides, name);
 }
