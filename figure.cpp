@@ -1,22 +1,23 @@
+#include <iostream>
 #include <string>
 #include "define.h"
 
 
-const std::string lable::sides = "Стороны: ";
+const std::string lable::sides = "Стороны:";
 const std::string lable::a = " a=";
 const std::string lable::b = " b=";
 const std::string lable::c = " c=";
 const std::string lable::d = " d=";
 
-const std::string lable::angles = "Углы: ";
+const std::string lable::angles = "Углы:";
 const std::string lable::A = " A=";
 const std::string lable::B = " B=";
 const std::string lable::C = " C=";
 const std::string lable::D = " D=";
 
 void Figure::getStr(
-		const int* side,
-		const int* angle,
+		int* side,
+		int* angle,
 		const int sides,
 		const std::string name
 		)
@@ -48,39 +49,69 @@ void Figure::getStr(
 		s = std::to_string(angle[i]);
 		str += lable_angle[i] + s;
 	}	
+	str += "\n";
 }
-
-/*Figure::Figure()
-{
-	getStr(side, angle, sides);
-}
-*/
 
 Triangle::Triangle()
 {
-	int side[sides];
-	int angle[sides];
-	side[side::a] = 10;
-	side[side::b] = 20;
-	side[side::c] = 30;
-	angle[angle::A] = 50;
-	angle[angle::B] = 60;
-	angle[angle::C] = 70;
+	int side[sides] = {a, b, c};
+	int angle[sides] = {A, B, C};
+	getStr(side, angle, sides, name);
+}
+
+RightTriangle::RightTriangle()
+{
+	int side[sides] = {a, b, c};
+	int angle[sides] = {A, B, C};
+	getStr(side, angle, sides, name);
+}
+
+IsoscelesTriangle::IsoscelesTriangle()
+{
+	int side[sides] = {a, b, c};
+	int angle[sides] = {A, B, C};
+	getStr(side, angle, sides, name);
+}
+
+IquilateralTriangle::IquilateralTriangle()
+{
+	int side[sides] = {a, b, c};
+	int angle[sides] = {A, B, C};
 	getStr(side, angle, sides, name);
 }
 
 Quadrangle::Quadrangle()
 {
-	int side[sides];
-	int angle[sides];
-	side[side::a] = 10;
-	side[side::b] = 20;
-	side[side::c] = 30;
-	side[side::d] = 40;
-	angle[angle::A] = 50;
-	angle[angle::B] = 60;
-	angle[angle::C] = 70;
-	angle[angle::D] = 80;
-
+	int side[sides] = {a, b, c, d};
+	int angle[sides] = {A, B, C, D};
 	getStr(side, angle, sides, name);
 }
+
+RightQuadrangle::RightQuadrangle()
+{
+	int side[sides] = {a, b, c, d};
+	int angle[sides] = {A, B, C, D};
+	getStr(side, angle, sides, name);
+}
+
+Quadrate::Quadrate()
+{
+	int side[sides] = {a, b, c, d};
+	int angle[sides] = {A, B, C, D};
+	getStr(side, angle, sides, name);
+}
+
+Parallelogram::Parallelogram()
+{
+	int side[sides] = {a, b, c, d};
+	int angle[sides] = {A, B, C, D};
+	getStr(side, angle, sides, name);
+}
+
+Rhomb::Rhomb()
+{
+	int side[sides] = {a, b, c, d};
+	int angle[sides] = {A, B, C, D};
+	getStr(side, angle, sides, name);
+}
+

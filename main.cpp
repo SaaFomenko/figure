@@ -3,15 +3,26 @@
 
 
 int main() {
-//	Figure figure;
 	Triangle triangle;
-	Quadrangle square;
+	RightTriangle right_triangle;
+	IsoscelesTriangle isosceles_triangle;
+	IquilateralTriangle iquilateral_triangle;
+	Quadrangle quadrangle;
+	RightQuadrangle right_quadrangle;
+	Quadrate quadrate;
+	Parallelogram parallelogram;
+	Rhomb rhomb;
 
-//	Figure* figures[] = {
 	Triangle* figures[] = {
-//		&figure,
 		&triangle,
-		&square,
+		&right_triangle,
+		&isosceles_triangle,
+		&iquilateral_triangle,
+		&quadrangle,
+		&right_quadrangle,
+		&quadrate,
+		&parallelogram,
+		&rhomb,
 	};
 	
 //	std::cout << figures[0]->lable << std::endl;
