@@ -1,15 +1,13 @@
 #include <string>
 
-enum status
-{
-	err_arr,
-	success
-};
 
 struct lable
 {
+	static const std::string count_sides;
 	static const std::string sides;
 	static const std::string angles;
+	static const std::string correct;
+	static const std::string wrong;
 	static const std::string a;
 	static const std::string b;
 	static const std::string c;
@@ -26,18 +24,15 @@ class Figure
 		const std::string name = "Фигура";
 
 	protected:
-		const int sides = 0;
-		void getStr(
-				int* side,
-				int* angle,	
-				const int sides,
-				const std::string name
-				);
+		const int ideal_sides = 0;
+		int sides = 0;
+		bool check = true;
 
 	public:
-		Figure() = default;
-		Figure(const int sides = 0);
-		std::string str = "";
+		Figure();
+		Figure(int sides);
+		virtual void checking();
+		virtual const std::string getStr();
 };
 
 class Triangle : public Figure
@@ -46,17 +41,29 @@ class Triangle : public Figure
 		const std::string name = "Треугольник";
 
 	protected:
-		const int sides = 3;
+		int sides = 3;
 
-		const int a = 10;
-		const int b = 20;
-		const int c = 30;
-		const int A = 50;
-		const int B = 60;
-		const int C = 70;
+		int a = 10;
+		int b = 20;
+		int c = 30;
+		int A = 50;
+		int B = 60;
+		int C = 70;
+
+//		virtual bool checking() override;
+		virtual const std::string getStr() override;
 
 	public:
 		Triangle();
+		Triangle(
+				int a,
+        int b,
+        int c,
+        int A,
+        int B,
+        int C,
+				int sides
+				);
 };
 
 class Quadrangle : public Triangle
@@ -65,124 +72,49 @@ class Quadrangle : public Triangle
 		const std::string name = "Четырехугольник";
 
 	protected:
-		const int sides = 4;
+		int sides = 4;
 
-		const int d = 50;
-		const int D = 80;
+		int d = 50;
+		int D = 80;
 
 	public:
 		Quadrangle();
+		Quadrangle(
+				int a,
+        int b,
+        int c,
+				int d,
+        int A,
+        int B,
+        int C,
+        int D,
+				int sides
+				);
+		
+//		virtual bool checking() override;
+		virtual const std::string getStr() override;
 };
 
 class RightTriangle : public Triangle
 {
 	private:
-		const std::string name = "Треугольник";
+		const std::string name = "Прямоугольный треугольник";
 
 	protected:
-		const int C = 90;
+		int C = 90;
 
 	public:
 		RightTriangle();
-};
+		RightTriangle(
+				int a,
+        int b,
+        int c,
+        int A,
+        int B,
+        int C,
+				int sides
+				);
 
-
-class IsoscelesTriangle : public Triangle
-{
-	private:
-		const std::string name = "Равнобедренный треугольник";
-
-	protected:
-		const int c = a;
-		const int D = A;
-
-	public:
-		IsoscelesTriangle();
-
-};
-
-class IquilateralTriangle : public Triangle
-{
-	private:
-		const std::string name = "Равносторонний треугольник";
-
-	protected:
-		const int a = 30;
-		const int b = a;
-		const int c = a;
-		const int A = 60;
-		const int B = A;
-		const int C = A;
-
-	public:
-		IquilateralTriangle();
-};
-
-class RightQuadrangle : public RightTriangle
-{
-	private:
-		const std::string name = "Прямоугольник";
-
-	protected:
-		const int sides = 4;
-
-		const int c = a;
-		const int d = b;
-		const int A = C;
-		const int B = C;
-		const int D = C;
-
-	public:
-		RightQuadrangle();
-};
-
-class Quadrate : public RightQuadrangle
-{
-	private:
-		const std::string name = "Квадрат";
-
-	protected:
-		const int sides = 4;
-
-		const int a = b;
-		const int c = b;
-
-	public:
-		Quadrate();
-};
-
-class Parallelogram : public Quadrate
-{
-	private:
-		const std::string name = "Параллелограмм";
-
-	protected:
-		const int sides = 4;
-
-		const int a = 20;
-		const int b = 30;
-		const int c = a;
-		const int d = b;
-		const int A = 30;
-		const int B = 40;
-		const int C = A;
-		const int D = B;
-
-	public:
-		Parallelogram();
-};
-
-class Rhomb : public Parallelogram
-{
-	private:
-		const std::string name = "Ромб";
-		
-	protected:
-		const int sides = 4;
-
-		const int a = b;
-		const int c = b;
-		
-	public:
-		Rhomb();
+//		virtual bool checking() override;
+		virtual const std::string getStr() override;
 };
