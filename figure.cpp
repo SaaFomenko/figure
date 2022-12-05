@@ -86,14 +86,20 @@ void Figure::checking()
 	}
 }
 
-Figure::Figure(){}
+Figure::Figure()
+{
+	checking();
+}
 
 Figure::Figure(int sides) : sides{sides}
 {
 	checking();
 }
 
-Triangle::Triangle(){}
+Triangle::Triangle()
+{
+	checking();
+}
 Triangle::Triangle(
 		int a,
 		int b,
@@ -138,7 +144,10 @@ void RightTriangle::checking()
 	}
 }
 
-RightTriangle::RightTriangle(){}
+RightTriangle::RightTriangle()
+{
+	checking();
+}
 RightTriangle::RightTriangle(
 		int a,
 		int b,
@@ -174,13 +183,25 @@ void Quadrangle::checking()
 	bool sides_fail = sides != ideal_sides;
 	bool angles_fail = sum_angles != total_angles;
 
+	std::cout << "Check: " << check << std::endl;
 	if (angles_fail || sides_fail)
 	{
 		check = false;
 	}
+	std::cout << "Check: " << check << std::endl;
+
+	std::cout << class_name << std::endl;
+	std::cout << "Sides: " << sides << std::endl;
+	std::cout << "Ideal sides: " << ideal_sides << std::endl;
+	std::cout << "Sides fail: " << sides_fail << std::endl;
+	std::cout << std::endl;
 }
 
-Quadrangle::Quadrangle(){}
+Quadrangle::Quadrangle()
+{
+	class_name = __FUNCTION__;
+	checking();
+}
 Quadrangle::Quadrangle(
 		int a,
     int b,
@@ -192,6 +213,7 @@ Quadrangle::Quadrangle(
     int D,
 		int sides
 		) : d{d},
+				B{B},
 				D{D},
 				sides{sides},
 				Triangle(a, b, c, A, B, C, sides)

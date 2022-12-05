@@ -12,6 +12,7 @@ int main() {
 	Quadrangle quadrangle;
 	Quadrangle quadrangle1(10, 30, 20, 40, 50, 60, 120, 130, 3);
 	Quadrangle quadrangle2(10, 30, 20, 40, 50, 60, 110, 130, 4);
+	Quadrangle quadrangle3(10, 30, 20, 40, 50, 50, 110, 150, 4);
 
 	Figure* figures[] = {
 		&abstract,
@@ -22,6 +23,7 @@ int main() {
 		&quadrangle,
 		&quadrangle1,
 		&quadrangle2,
+		&quadrangle3,
 	};
 	
 //	std::cout << figures[0]->lable << std::endl;

@@ -24,6 +24,7 @@ class Figure
 		const std::string name = "Фигура";
 
 	protected:
+		std::string class_name = "";
 		const int ideal_sides = 0;
 		int sides = 0;
 		bool check = true;
@@ -44,6 +45,7 @@ class Triangle : public Figure
 		const int ideal_sides = 3;
 		const int total_angles = 180;
 		int sides = 3;
+		bool check = true;
 
 		int a = 10;
 		int b = 20;
@@ -77,6 +79,7 @@ class Quadrangle : public Triangle
 		const int ideal_sides = 4;
 		const int total_angles = 360;
 		int sides = 4;
+		bool check = true;
 
 		int d = 50;
 		int B = 100;
@@ -106,6 +109,7 @@ class RightTriangle : public Triangle
 		const std::string name = "Прямоугольный треугольник";
 
 	protected:
+		bool check = true;
 		const int ideal_C = 90;
 		int C = 90;
 
