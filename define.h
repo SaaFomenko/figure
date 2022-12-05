@@ -41,6 +41,8 @@ class Triangle : public Figure
 		const std::string name = "Треугольник";
 
 	protected:
+		const int ideal_sides = 3;
+		const int total_angles = 180;
 		int sides = 3;
 
 		int a = 10;
@@ -50,7 +52,7 @@ class Triangle : public Figure
 		int B = 60;
 		int C = 70;
 
-//		virtual bool checking() override;
+		virtual void checking() override;
 		virtual const std::string getStr() override;
 
 	public:
@@ -72,10 +74,13 @@ class Quadrangle : public Triangle
 		const std::string name = "Четырехугольник";
 
 	protected:
+		const int ideal_sides = 4;
+		const int total_angles = 360;
 		int sides = 4;
 
 		int d = 50;
-		int D = 80;
+		int B = 100;
+		int D = 140;
 
 	public:
 		Quadrangle();
@@ -91,7 +96,7 @@ class Quadrangle : public Triangle
 				int sides
 				);
 		
-//		virtual bool checking() override;
+		virtual void checking() override;
 		virtual const std::string getStr() override;
 };
 
@@ -101,6 +106,7 @@ class RightTriangle : public Triangle
 		const std::string name = "Прямоугольный треугольник";
 
 	protected:
+		const int ideal_C = 90;
 		int C = 90;
 
 	public:
@@ -115,6 +121,6 @@ class RightTriangle : public Triangle
 				int sides
 				);
 
-//		virtual bool checking() override;
+		virtual void checking() override;
 		virtual const std::string getStr() override;
 };

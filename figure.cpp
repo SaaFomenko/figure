@@ -37,9 +37,8 @@ void templFigure(
 		lable::C,
 		lable::D,
 	};
-	std::string s = std::to_string(sides);
+	std::string s = "";
 
-	*str += lable::count_sides + s + "\n";
 	*str += lable::sides;
 	for (int i = 0; i < sides; ++i)
 	{
@@ -60,10 +59,12 @@ const std::string Triangle::getStr()
 {
 	int side[] = {a, b, c};
 	int angle[] = {A, B, C};
-	std::string str = "";
+	std::string s = std::to_string(sides);
+	std::string str = name + ":\n" + 
+		(check ? lable::correct : lable::wrong) + "\n";
+	str += lable::count_sides + s + "\n";
 
-	str = name + ":\n";
-	templFigure(side, angle, sides, &str);
+	templFigure(side, angle, ideal_sides, &str);
 
 	return str;
 }
@@ -107,7 +108,35 @@ Triangle::Triangle(
 				A{A},
 				B{B},
 				C{C},
-				sides{sides}{}
+				sides{sides}
+{
+	checking();
+}
+
+void Triangle::checking()
+{
+	int sum_angles = A + B + C;
+	bool sides_fail = sides != ideal_sides;
+	bool angles_fail = sum_angles != total_angles;
+
+	if (angles_fail || sides_fail)
+	{
+		check = false;
+	}
+}
+
+void RightTriangle::checking()
+{
+	int sum_angles = A + B + C;
+	bool C_fail = C != ideal_C;
+	bool sides_fail = sides != ideal_sides;
+	bool angles_fail = sum_angles != total_angles;
+
+	if (angles_fail || sides_fail || C_fail)
+	{
+		check = false;
+	}
+}
 
 RightTriangle::RightTriangle(){}
 RightTriangle::RightTriangle(
@@ -118,18 +147,37 @@ RightTriangle::RightTriangle(
 		int B,
 		int C,
 		int sides
-		) : Triangle(a, b, c, A, B, C, sides){}
+		) : C{C},
+				Triangle(a, b, c, A, B, C, sides) 
+{
+	checking();
+}
 
 const std::string RightTriangle::getStr()
 {
 	int side[] = {a, b, c};
 	int angle[] = {A, B, C};
-	std::string str = "";
+	std::string s = std::to_string(sides);
+	std::string str = name + ":\n" + 
+		(check ? lable::correct : lable::wrong) + "\n";
 
-	str = name + ":\n";
-	templFigure(side, angle, sides, &str);
+	str += lable::count_sides + s + "\n";
+
+	templFigure(side, angle, ideal_sides, &str);
 
 	return str;
+}
+
+void Quadrangle::checking()
+{
+	int sum_angles = A + B + C + D;
+	bool sides_fail = sides != ideal_sides;
+	bool angles_fail = sum_angles != total_angles;
+
+	if (angles_fail || sides_fail)
+	{
+		check = false;
+	}
 }
 
 Quadrangle::Quadrangle(){}
@@ -145,16 +193,23 @@ Quadrangle::Quadrangle(
 		int sides
 		) : d{d},
 				D{D},
-				Triangle(a, b, c, A, B, C, sides){}
+				sides{sides},
+				Triangle(a, b, c, A, B, C, sides)
+{
+	checking();
+}
 
 const std::string Quadrangle::getStr()
 {
 	int side[] = {a, b, c, d};
 	int angle[] = {A, B, C, D};
-	std::string str = "";
+	std::string s = std::to_string(sides);
+	std::string str = name + ":\n" + 
+		(check ? lable::correct : lable::wrong) + "\n";
 
-	str = name + ":\n";
-	templFigure(side, angle, sides, &str);
+	str += lable::count_sides + s + "\n";
+
+	templFigure(side, angle, ideal_sides, &str);
 
 	return str;
 }
