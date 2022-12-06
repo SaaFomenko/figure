@@ -1,5 +1,12 @@
+#pragma once
 #include <string>
 
+
+enum status
+{
+	success,
+	error
+};
 
 struct lable
 {
@@ -18,21 +25,35 @@ struct lable
 	static const std::string D;	
 };
 
+enum figure
+{
+	sides,
+	a,
+	b,
+	c,
+	d,
+	A,
+	B,
+	C,
+	D,
+};
+
 class Figure
 {
 	private:
 		const std::string name = "Фигура";
 
 	protected:
-		std::string class_name = "";
 		const int ideal_sides = 0;
-		int sides = 0;
-		bool check = true;
+
+		int _sides;
+
+		virtual bool checking();
 
 	public:
-		Figure();
-		Figure(int sides);
-		virtual void checking();
+		Figure(int sides = 0);
+
+		virtual status setField(int, figure);
 		virtual const std::string getStr();
 };
 
@@ -44,30 +65,30 @@ class Triangle : public Figure
 	protected:
 		const int ideal_sides = 3;
 		const int total_angles = 180;
-		int sides = 3;
-		bool check = true;
 
-		int a = 10;
-		int b = 20;
-		int c = 30;
-		int A = 50;
-		int B = 60;
-		int C = 70;
+		int _sides;
+		int _a;
+		int _b;
+		int _c;
+		int _A;
+		int _B;
+		int _C;
 
-		virtual void checking() override;
-		virtual const std::string getStr() override;
+		virtual bool checking() override;
 
 	public:
-		Triangle();
 		Triangle(
-				int a,
-        int b,
-        int c,
-        int A,
-        int B,
-        int C,
-				int sides
+				int sides = 3,
+				int a = 10,
+        int b = 20,
+        int c = 30,
+        int A = 50,
+        int B = 60,
+        int C = 70
 				);
+
+		virtual status setField(int, figure) override;
+		virtual const std::string getStr() override;
 };
 
 class Quadrangle : public Triangle
@@ -78,28 +99,23 @@ class Quadrangle : public Triangle
 	protected:
 		const int ideal_sides = 4;
 		const int total_angles = 360;
-		int sides = 4;
-		bool check = true;
 
-		int d = 50;
-		int B = 100;
-		int D = 140;
+		int _sides;
+		int _d;
+		int _B;
+		int _D;
+
+		virtual bool checking() override;
 
 	public:
-		Quadrangle();
 		Quadrangle(
-				int a,
-        int b,
-        int c,
-				int d,
-        int A,
-        int B,
-        int C,
-        int D,
-				int sides
+				int sides = 4,
+				int d = 40,
+				int B = 100,
+        int D = 140
 				);
 		
-		virtual void checking() override;
+		virtual status setField(int, figure) override;
 		virtual const std::string getStr() override;
 };
 
@@ -109,111 +125,17 @@ class RightTriangle : public Triangle
 		const std::string name = "Прямоугольный треугольник";
 
 	protected:
-		bool check = true;
 		const int ideal_C = 90;
-		int C = 90;
+		int _A;
+		int _C;
+
+		virtual bool checking() override;
 
 	public:
-		RightTriangle();
 		RightTriangle(
-				int a,
-        int b,
-        int c,
-        int A,
-        int B,
-        int C,
-				int sides
+				int A = 30,
+        int C = 90
 				);
 
-		virtual void checking() override;
 		virtual const std::string getStr() override;
-};
-
-class IsoscelesTriangle : public Triangle
-{
-	private:
-		const std::string name = "Равнобедренный треугольник";
-
-	protected:
-		bool check = true;
-		int c = a;
-		int C = A;
-
-	public:
-		static const std::string name;
-
-		std::string getStr() override;
-};
-
-class IquilateralTriangle : public Triangle
-{
-	protected:
-		const int a = 30;
-		const int b = a;
-		const int c = a;
-		const int A = 60;
-		const int B = A;
-		const int C = A;
-
-	public:
-		static const std::string name;
-
-		std::string getStr() override;
-};
-
-class RightQuadrangle : public RightTriangle
-{
-	protected:
-		const int c = a;
-		const int d = b;
-		const int A = C;
-		const int B = C;
-		const int D = C;
-
-	public:
-		static const std::string name;
-
-		std::string getStr() override;
-};
-
-class Quadrate : public RightQuadrangle
-{
-	protected:
-		const int a = b;
-		const int c = b;
-
-	public:
-		static const std::string name;
-
-		std::string getStr() override;
-};
-
-class Parallelogram : public Quadrate
-{
-	protected:
-		const int a = 20;
-		const int b = 30;
-		const int c = a;
-		const int d = b;
-		const int A = 30;
-		const int B = 40;
-		const int C = A;
-		const int D = B;
-
-	public:
-		static const std::string name;
-
-		std::string getStr() override;
-};
-
-class Rhomb : public Parallelogram
-{
-	protected:
-		const int a = b;
-		const int c = b;
-		
-	public:
-		static const std::string name;
-
-		std::string getStr() override;
 };
