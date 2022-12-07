@@ -7,6 +7,8 @@ class Figure
 		std::string _name;
 
 	public:
+		Figure(int, int, int, int, int, int, int, std::string, int);
+		Figure(int, int, int, int, int, std::string, int);
 		Figure(std::string, int);
 
 		static const std::string lable;
