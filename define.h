@@ -3,29 +3,26 @@
 class Figure
 {
 	private:
-		const int sides = 0;
-		const std::string name = "Фигура: ";
+		int _sides;
+		std::string _name;
+
 	public:
-		const std::string lable = "Количество сторон: ";
-		std::string str = "";
-		void getStr(std::string name, int sides);
-		virtual void getSides();
+		Figure(std::string, int);
+
+		static const std::string lable;
+
+		int getSides();
+		std::string getName();
 };
 
 class Triangle : public Figure
 {
-	private:
-		const int sides = 3;
-		const std::string name = "Треугольник: ";
 	public:
-		void getSides() override;
+		Triangle();
 };
 
-class Quadrangle : public Triangle
+class Quadrangle : public Figure
 {
-	private:
-		const int sides = 4;
-		const std::string name = "Четырехугольник: ";
 	public:
-		void getSides() override;
+		Quadrangle();
 };

@@ -2,8 +2,10 @@
 #include "define.h"
 
 
+const std::string Figure::lable = "Количество сторон: ";
+
 int main() {
-	Figure figure;
+	Figure figure("Фигура", 0);
 	Triangle triangle;
 	Quadrangle square;
 
@@ -17,8 +19,8 @@ int main() {
 
 	for (Figure* figure : figures)
 	{
-		figure->getSides();
-		std::cout << figure->str << std::endl;
+		std::cout << figure->getName() << ": " <<
+		 figure->getSides() <<	std::endl;
 	}
 
   return 0;

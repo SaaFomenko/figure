@@ -1,22 +1,26 @@
 #include <string>
 #include "define.h"
 
-void Figure::getStr(std::string name, int sides)
+Figure::Figure(
+		std::string name, 
+		int sides
+		) : 
+				_name(name),
+				_sides(sides)
+{}
+
+std::string Figure::getName()
 {
-	str += name;
-	str += std::to_string(sides);
+	return _name;
 }
 
-void Figure::getSides()
+int Figure::getSides()
 {
-	getStr(name, sides);
+	return _sides;
 }
 
-void Triangle::getSides()
-{
-	getStr(name, sides);
-}
+Triangle::Triangle() : Figure("Трехугольник", 3)
+{}
 
-void Quadrangle::getSides(){
-	getStr(name, sides);
-}
+Quadrangle::Quadrangle() : Figure("Четырехугольник", 4)
+{}
