@@ -1,5 +1,7 @@
 #include <iostream>
 #include "figure.h"
+#include "triangle.h"
+#include "quadrangle.h"
 
 
 const std::string Figure::sides = "Стороны:";

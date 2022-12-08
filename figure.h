@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>
 
 
@@ -6,6 +8,8 @@ class Figure
 	private:
 		int _sides;
 		std::string _name;
+		static const int ideal_sides;
+		static const int sum_angles_triangles;
 	
 	protected:
 /*		int _a;
@@ -20,28 +24,21 @@ class Figure
 		int* angle_arr;
 		int* side_arr;
 
+		virtual bool checking();
+
 	public:
 		Figure(int, int, int, int, int, int, int, int, std::string, int);
 		Figure(int, int, int, int, int, int, std::string, int);
 		Figure(std::string, int);
+		Figure();
 		~Figure();
-
-		static const std::string sides;
-		static const std::string angles;
-		static const std::string a;
-		static const std::string b;
-		static const std::string c;
-		static const std::string d;
-		static const std::string A;
-		static const std::string B;
-		static const std::string C;
-		static const std::string D;
 
 		std::string getName();
 
 		int getCountSides();
 		int* getSides();
 		int* getAngles();
+		virtual void getInfo();
 		/*
 		int get_a();
 		int get_b();
@@ -54,67 +51,3 @@ class Figure
 		*/
 };
 
-class Triangle : public Figure
-{
-	public:
-		Triangle();
-		Triangle(int, int, int, int, int, int);
-//		~Triangle();
-};
-
-class RightTriangle : public Figure
-{
-	public:
-		RightTriangle();
-		RightTriangle(int, int, int, int, int);
-};
-
-class IsoscelesTriangle : public Figure
-{
-	public:
-		IsoscelesTriangle();
-		IsoscelesTriangle(int, int, int, int);
-};
-
-class IquilateralTriangle : public Figure
-{
-	public:
-		IquilateralTriangle();
-		IquilateralTriangle(int);
-};
-
-class Quadrangle : public Figure
-{
-	public:
-		Quadrangle();
-		Quadrangle(int, int, int, int, int, int, int, int);
-//		~Quadrangle();
-};
-
-class RightQuadrangle : public Figure
-{
-	public:
-		RightQuadrangle();
-		RightQuadrangle(int, int);
-};
-
-class Quadrate : public Figure
-{
-	public:
-		Quadrate();
-		Quadrate(int);
-};
-
-class Parallelogram : public Figure
-{
-	public:
-		Parallelogram();
-		Parallelogram(int, int, int, int);
-};
-
-class Rhomb : public Figure
-{
-	public:
-		Rhomb();
-		Rhomb(int, int, int);
-};
