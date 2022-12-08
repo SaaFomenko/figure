@@ -2,13 +2,13 @@
 #include "figure.h"
 
 
-const std::string Figure::sides = "Стороны: ";
+const std::string Figure::sides = "Стороны:";
 const std::string Figure::a = " a=";
 const std::string Figure::b = " b=";
 const std::string Figure::c = " c=";
 const std::string Figure::d = " d=";
 
-const std::string Figure::angles = "Углы: ";
+const std::string Figure::angles = "Углы:";
 const std::string Figure::A = " A=";
 const std::string Figure::B = " B=";
 const std::string Figure::C = " C=";
@@ -31,11 +31,25 @@ int main() {
 	};
 
 	Triangle triangle;
-	Quadrangle square;
+	RightTriangle right_triangle;
+	IsoscelesTriangle isosceles_triangle;
+	IquilateralTriangle iquilateral_triangle;
+	Quadrangle quadrangle;
+	RightQuadrangle right_quadrangle;
+	Quadrate quadrate;
+	Parallelogram parallelogram;
+	Rhomb rhomb;
 
 	Figure* figures[] = {
 		&triangle,
-		&square,
+		&right_triangle,
+		&isosceles_triangle,
+		&iquilateral_triangle,
+		&quadrangle,
+		&right_quadrangle,
+		&quadrate,
+		&parallelogram,
+		&rhomb,
 	};
 	
 	for (Figure* figure : figures)
@@ -56,7 +70,7 @@ int main() {
 		{
 			std::cout << angle_lable[i] << angle[i];
 		}
-//		std::cout << std::endl;
+		std::cout << std::endl;
 		std::cout << std::endl;
 	}
 

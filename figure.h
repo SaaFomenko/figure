@@ -62,10 +62,52 @@ class Triangle : public Figure
 //		Triangle(int, int, int, int, int, int);
 };
 
+class RightTriangle : public Figure
+{
+	public:
+		RightTriangle();
+};
+
+class IsoscelesTriangle : public Figure
+{
+	public:
+		IsoscelesTriangle();
+};
+
+class IquilateralTriangle : public Figure
+{
+	public:
+		IquilateralTriangle();
+};
+
 class Quadrangle : public Figure
 {
 	public:
 		Quadrangle();
 //		~Quadrangle();
 //		Quadrangle(int, int, int, int, int, int, int, int);
+};
+
+class RightQuadrangle : public Figure
+{
+	public:
+		RightQuadrangle();
+};
+
+class Quadrate : public Figure
+{
+	public:
+		Quadrate();
+};
+
+class Parallelogram : public Figure
+{
+	public:
+		Parallelogram();
+};
+
+class Rhomb : public Figure
+{
+	public:
+		Rhomb();
 };
