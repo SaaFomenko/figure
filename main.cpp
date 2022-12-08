@@ -32,24 +32,32 @@ int main() {
 
 	Triangle triangle;
 	RightTriangle right_triangle;
+	RightTriangle right_triangle1(11, 12, 13, 30, 60);
 	IsoscelesTriangle isosceles_triangle;
+	IsoscelesTriangle isosceles_triangle1(35, 40, 50, 80);
 	IquilateralTriangle iquilateral_triangle;
+	IquilateralTriangle iquilateral_triangle1(60);
 	Quadrangle quadrangle;
 	RightQuadrangle right_quadrangle;
 	Quadrate quadrate;
 	Parallelogram parallelogram;
 	Rhomb rhomb;
+	Rhomb rhomb1(7, 120, 60);
 
 	Figure* figures[] = {
 		&triangle,
 		&right_triangle,
+		&right_triangle1,
 		&isosceles_triangle,
+		&isosceles_triangle1,
 		&iquilateral_triangle,
+		&iquilateral_triangle1,
 		&quadrangle,
 		&right_quadrangle,
 		&quadrate,
 		&parallelogram,
 		&rhomb,
+		&rhomb1,
 	};
 	
 	for (Figure* figure : figures)
