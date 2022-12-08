@@ -45,18 +45,18 @@ int main() {
 		int* angle = figure->getAngles();
 
 		std::cout << figure->getName() << ":" << std::endl;
-		std::cout << Figure::sides << ":";
+		std::cout << Figure::sides;
 		for (int i = 0; i < size; ++i)
 		{
-			std::cout << side_lable[i] << side[i] << " ";
+			std::cout << side_lable[i] << side[i];
 		}
 		std::cout << std::endl;
-		std::cout << Figure::angles << ": ";
+		std::cout << Figure::angles;
 		for (int i = 0; i < size; ++i)
 		{
-			std::cout << angle_lable[i] << angle[i] << " ";
+			std::cout << angle_lable[i] << angle[i];
 		}
-		std::cout << std::endl;
+//		std::cout << std::endl;
 		std::cout << std::endl;
 	}
 

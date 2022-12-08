@@ -59,8 +59,8 @@ Figure::Figure(
 				_name(name),
 				_sides(sides)
 {
-	side_arr = new int[_sides]{a, b, c};
-	angle_arr = new int[_sides]{A, B, C};
+	side_arr = new int[_sides]{a, b, c, d};
+	angle_arr = new int[_sides]{A, B, C, D};
 }
 
 std::string Figure::getName()
