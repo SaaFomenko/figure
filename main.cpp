@@ -2,7 +2,7 @@
 #include "define.h"
 
 
-const std::string Figure::lable = "Количество сторон: ";
+static const std::string view::count_sides = "Количество сторон: ";
 
 int main() {
 	Figure figure("Фигура", 0);
@@ -15,7 +15,7 @@ int main() {
 		&square,
 	};
 	
-	std::cout << figures[0]->lable << std::endl;
+	std::cout << view::count_sides << std::endl;
 
 	for (Figure* figure : figures)
 	{

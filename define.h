@@ -1,5 +1,11 @@
 #include <string>
 
+
+struct view
+{
+	static const std::string count_sides;
+}
+
 class Figure
 {
 	private:
@@ -9,7 +15,6 @@ class Figure
 	public:
 		Figure(std::string, int);
 
-		static const std::string lable;
 
 		int getSides();
 		std::string getName();
