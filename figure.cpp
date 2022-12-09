@@ -19,8 +19,15 @@ int Figure::getSides()
 	return _sides;
 }
 
-Triangle::Triangle() : Figure("Трехугольник", 3)
+Triangle::Triangle() : Figure("Треугольник", 3)
 {}
 
-Quadrangle::Quadrangle() : Figure("Четырехугольник", 4)
+Triangle::Triangle(
+		std::string name, 
+		int sides
+		) : 
+				Figure(name, sides)	
+{}
+
+Quadrangle::Quadrangle() : Triangle("Четырехугольник", 4)
 {}

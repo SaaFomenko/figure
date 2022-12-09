@@ -2,7 +2,7 @@
 #include "define.h"
 
 
-static const std::string view::count_sides = "Количество сторон: ";
+const std::string view::count_sides = "Количество сторон: ";
 
 int main() {
 	Figure figure("Фигура", 0);

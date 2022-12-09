@@ -4,13 +4,13 @@
 struct view
 {
 	static const std::string count_sides;
-}
+};
 
 class Figure
 {
-	private:
-		int _sides;
+	protected:
 		std::string _name;
+		int _sides;
 
 	public:
 		Figure(std::string, int);
@@ -22,11 +22,15 @@ class Figure
 
 class Triangle : public Figure
 {
+//	std::string _name;
+//	int _sides;
+
 	public:
 		Triangle();
+		Triangle(std::string, int);
 };
 
-class Quadrangle : public Figure
+class Quadrangle : public Triangle
 {
 	public:
 		Quadrangle();
