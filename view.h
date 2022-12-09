@@ -1,4 +1,4 @@
-struct view 
+struct view
 {
 	static const std::string count_sides;
 	static const std::string correct;

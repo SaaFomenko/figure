@@ -8,29 +8,28 @@ class Triangle : public Figure
 
 	public:
 		Triangle();
-		Triangle(int, int, int, int, int, int);
+		Triangle(int, int, int, int, int, int, std::string, int);
 
 		void getInfo() override;
 };
 
-class RightTriangle : public Figure
+class RightTriangle : public Triangle
 {
 	public:
 		RightTriangle();
 		RightTriangle(int, int, int, int, int);
 };
 
-class IsoscelesTriangle : public Figure
+class IsoscelesTriangle : public Triangle
 {
 	public:
 		IsoscelesTriangle();
 		IsoscelesTriangle(int, int, int, int);
 };
 
-class IquilateralTriangle : public Figure
+class IquilateralTriangle : public Triangle
 {
 	public:
 		IquilateralTriangle();
 		IquilateralTriangle(int);
 };
-
