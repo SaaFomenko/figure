@@ -54,7 +54,8 @@ int* Figure::getAngles()
 
 bool Figure::checking()
 {
-	return _sides == ideal_sides;
+	is_sides = _sides == 0;
+	return is_sides;
 }
 
 void Figure::getInfo()

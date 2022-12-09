@@ -8,13 +8,9 @@ class Figure
 	protected:
 		int _sides;
 		std::string _name;
-		int ideal_sides;
-		int sum_angles_triangles;
 	
 		int* angle_arr;
 		int* side_arr;
-
-		virtual bool checking();
 
 	public:
 		Figure();
@@ -26,5 +22,6 @@ class Figure
 		int getCountSides();
 		int* getSides();
 		int* getAngles();
+		virtual bool checking();
 		virtual void getInfo();
 };

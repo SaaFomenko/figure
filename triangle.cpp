@@ -7,6 +7,10 @@ const std::string RIGHT_TRIANGLE = "Прямоугольный треуголь�
 const std::string ISOSCELES_TRIANGLE = "Равнобедренный треугольник";
 const std::string IQUILATERAL_TRIANGLE = "Равнобедренный треугольник";
 
+bool Triangle::checking()
+{
+	return check;
+}
 
 Triangle::Triangle() : Triangle(10, 20, 30, 50, 60, 70, TRIANGLE, 3)
 {}
