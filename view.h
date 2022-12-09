@@ -10,4 +10,4 @@ struct view
 	static const std::string B;
 	static const std::string C;
 	static const std::string D;
-}
+};

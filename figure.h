@@ -3,26 +3,15 @@
 
 class Figure
 {
-	private:
+	protected:
 		int _sides;
 		std::string _name;
-	
-	protected:
-/*		int _a;
-		int _b;
-		int _c;
-		int _d;
-		int _A;
-		int _B;
-		int _C;
-		int _D;
-*/
+
 		int* angle_arr;
 		int* side_arr;
 
 	public:
-		Figure(int, int, int, int, int, int, int, int, std::string, int);
-		Figure(int, int, int, int, int, int, std::string, int);
+		Figure();
 		Figure(std::string, int);
 		~Figure();
 
@@ -31,41 +20,31 @@ class Figure
 		int getCountSides();
 		int* getSides();
 		int* getAngles();
-		/*
-		int get_a();
-		int get_b();
-		int get_c();
-		int get_d();
-		int get_A();
-		int get_B();
-		int get_C();
-		int get_D();
-		*/
 };
 
 class Triangle : public Figure
 {
 	public:
 		Triangle();
-		Triangle(int, int, int, int, int, int);
+		Triangle(int, int, int, int, int, int, std::string, int);
 //		~Triangle();
 };
 
-class RightTriangle : public Figure
+class RightTriangle : public Triangle
 {
 	public:
 		RightTriangle();
 		RightTriangle(int, int, int, int, int);
 };
 
-class IsoscelesTriangle : public Figure
+class IsoscelesTriangle : public Triangle
 {
 	public:
 		IsoscelesTriangle();
 		IsoscelesTriangle(int, int, int, int);
 };
 
-class IquilateralTriangle : public Figure
+class IquilateralTriangle : public Triangle
 {
 	public:
 		IquilateralTriangle();
@@ -76,32 +55,32 @@ class Quadrangle : public Figure
 {
 	public:
 		Quadrangle();
-		Quadrangle(int, int, int, int, int, int, int, int);
+		Quadrangle(int, int, int, int, int, int, int, int, std::string, int);
 //		~Quadrangle();
 };
 
-class RightQuadrangle : public Figure
+class RightQuadrangle : public Quadrangle
 {
 	public:
 		RightQuadrangle();
 		RightQuadrangle(int, int);
 };
 
-class Quadrate : public Figure
+class Quadrate : public Quadrangle
 {
 	public:
 		Quadrate();
 		Quadrate(int);
 };
 
-class Parallelogram : public Figure
+class Parallelogram : public Quadrangle
 {
 	public:
 		Parallelogram();
 		Parallelogram(int, int, int, int);
 };
 
-class Rhomb : public Figure
+class Rhomb : public Quadrangle
 {
 	public:
 		Rhomb();

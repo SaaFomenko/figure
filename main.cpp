@@ -1,33 +1,34 @@
 #include <iostream>
 #include "figure.h"
+#include "view.h"
 
 
-const std::string Figure::sides = "Стороны:";
-const std::string Figure::a = " a=";
-const std::string Figure::b = " b=";
-const std::string Figure::c = " c=";
-const std::string Figure::d = " d=";
+const std::string view::sides = "Стороны:";
+const std::string view::a = " a=";
+const std::string view::b = " b=";
+const std::string view::c = " c=";
+const std::string view::d = " d=";
 
-const std::string Figure::angles = "Углы:";
-const std::string Figure::A = " A=";
-const std::string Figure::B = " B=";
-const std::string Figure::C = " C=";
-const std::string Figure::D = " D=";
+const std::string view::angles = "Углы:";
+const std::string view::A = " A=";
+const std::string view::B = " B=";
+const std::string view::C = " C=";
+const std::string view::D = " D=";
 
 int main() {
 
 	const std::string side_lable[] = {
-		Figure::a,
-		Figure::b,
-		Figure::c,
-		Figure::d,
+		view::a,
+		view::b,
+		view::c,
+		view::d,
 	};
 
 	const std::string angle_lable[] = {
-		Figure::A,
-		Figure::B,
-		Figure::C,
-		Figure::D,
+		view::A,
+		view::B,
+		view::C,
+		view::D,
 	};
 
 	Triangle triangle;
@@ -67,13 +68,13 @@ int main() {
 		int* angle = figure->getAngles();
 
 		std::cout << figure->getName() << ":" << std::endl;
-		std::cout << Figure::sides;
+		std::cout << view::sides;
 		for (int i = 0; i < size; ++i)
 		{
 			std::cout << side_lable[i] << side[i];
 		}
 		std::cout << std::endl;
-		std::cout << Figure::angles;
+		std::cout << view::angles;
 		for (int i = 0; i < size; ++i)
 		{
 			std::cout << angle_lable[i] << angle[i];
