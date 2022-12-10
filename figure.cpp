@@ -5,63 +5,34 @@
 
 const std::string view::count_sides = "Количество сторон: ";
 const std::string FIGURE = "Фигура";
+const std::string view::correct = "Правильная";
+const std::string view::wrong = "Неправильная";
+
 
 Figure::Figure(
 		std::string name,
-		int sides 
+		int sides
 		) :
+				_name(name),
 				_sides(sides),
-				_name(name)
+				ideal_sides(0)
 {}
 
 Figure::Figure() : Figure(FIGURE, 0)
 {}
 
-std::string Figure::getName()
-{
-	return _name;
-}
-
-Figure::~Figure()
-{
-	if (side_arr != nullptr)
-	{
-		delete[] side_arr;
-		side_arr = nullptr;
-	}
-
-	if (angle_arr != nullptr)
-	{
-		delete[] angle_arr;
-		angle_arr = nullptr;
-	}
-}
-
-int Figure::getCountSides()
-{
-	return _sides;
-}
-
-int* Figure::getSides()
-{
-	return side_arr;
-}
-
-int* Figure::getAngles()
-{
-	return angle_arr;
-}
+Figure::~Figure(){}
 
 bool Figure::checking()
 {
-	is_sides = _sides == 0;
-	return is_sides;
+	return _sides == ideal_sides;
 }
 
 void Figure::getInfo()
 {
 		std::cout << _name << ":" << std::endl;
-		std::cout << (checking() ? view::correct : view::wrong) << std::endl;
+		std::cout << (checking() ? view::correct : view::wrong) << 
+			std::endl;
 		std::cout << view::count_sides << _sides << std::endl;
 		std::cout <<  std::endl;
 }

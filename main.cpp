@@ -65,24 +65,7 @@ int main() {
 	
 	for (Figure* figure : figures)
 	{
-		int size = figure->getCountSides();
-		int* side = figure->getSides();
-		int* angle = figure->getAngles();
-
-		std::cout << figure->getName() << ":" << std::endl;
-		std::cout << view::sides;
-		for (int i = 0; i < size; ++i)
-		{
-			std::cout << side_lable[i] << side[i];
-		}
-		std::cout << std::endl;
-		std::cout << view::angles;
-		for (int i = 0; i < size; ++i)
-		{
-			std::cout << angle_lable[i] << angle[i];
-		}
-		std::cout << std::endl;
-		std::cout << std::endl;
+		figure->getInfo();
 	}
 
   return 0;
