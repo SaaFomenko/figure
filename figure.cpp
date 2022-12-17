@@ -1,111 +1,38 @@
-#include <string>
-#include "define.h"
+#include <iostream>
+#include "figure.h"
+#include "view.h"
 
 
-const std::string row_separator = "\n";
+const std::string view::count_sides = "Количество сторон: ";
+const std::string FIGURE = "Фигура";
+const std::string view::correct = "Правильная";
+const std::string view::wrong = "Неправильная";
 
-const std::string Triangle::name = "Треугольник: ";
-const std::string Triangle::sides_lable = "Стороны: ";
-const std::string Triangle::a_lable = " a=";
-const std::string Triangle::b_lable = " b=";
-const std::string Triangle::c_lable = " c=";
 
-const std::string Triangle::angles_lable = "Углы: ";
-const std::string Triangle::A_lable = " A=";
-const std::string Triangle::B_lable = " B=";
-const std::string Triangle::C_lable = " C=";
+Figure::Figure(
+		std::string name,
+		int sides
+		) :
+				_name(name),
+				_sides(sides),
+				ideal_sides(0)
+{}
 
-const std::string RightTriangle::name = "Прямоугольный треугольник: ";
-const std::string IsoscelesTriangle::name = "Равнобедренный треугольник: ";
-const std::string IquilateralTriangle::name = "Равносторонний треугольник: ";
+Figure::Figure() : Figure(FIGURE, 0)
+{}
 
-const std::string Quadrangle::name = "Четырёхугольник: ";
-const std::string Quadrangle::d_lable = " d=";
-const std::string Quadrangle::D_lable = " D=";
+Figure::~Figure(){}
 
-const std::string RightQuadrangle::name = "Прямоугольник: ";
-const std::string Quadrate::name = "Квадрат: ";
-const std::string Parallelogram::name = "Параллелограм: ";
-const std::string Rhomb::name = "Ромб: ";
-
-std::string ParamToStr(
-		const int* param,
-		std::string* lable_param,
-		int size
-		)
+bool Figure::checking()
 {
-	std::string result = "";
-	
-	if (param != nullptr && lable_param != nullptr)
-	{
-		std::string separator = "";
-		int center_index = size/2 - 1;
-  
-		for (int i = 0; i < size; ++i)
-		{
-			const std::string str_param = std::to_string(param[i]);
-			if (i == center_index) separator = row_separator;
-			result += lable_param[i] + str_param + separator;
-		}
-	}
-	else
-	{
-		result = "none";
-	}
-
-	return result;
+	return _sides == ideal_sides;
 }
 
-std::string Figure::getSides()
+void Figure::getInfo()
 {
-	const std::string s = std::to_string(sides);
-	return name + s;
-}
-
-std::string Triangle::getSides()
-{
-	const std::string s = std::to_string(sides);
-	return name + s;
-}
-
-std::string Triangle::getStr()
-{
-	int param[] = {a, b, c, A, B, C};
-	int size = sizeof(param) / sizeof(param[0]);
-	std::string lable_param[] = {
-		sides_lable + a_lable,
-		b_lable,
-		c_lable,
-		angles_lable + A_lable,
-		B_lable,
-		C_lable,
-	};
-
-	std::string s = ParamToStr(param, lable_param, size);
-	return name + s + row_separator;
-}
-
-
-std::string RightTriangle::getStr()
-{
-	int param[] = {a, b, c, A, B, C};
-	int size = sizeof(param) / sizeof(param[0]);
-		std::string lable_param[] = {
-		sides_lable + a_lable,
-		b_lable,
-		c_lable,
-		angles_lable + A_lable,
-		B_lable,
-		C_lable,
-	};
-
-	std::string s = ParamToStr(param, lable_param, size);
-	return name + s + row_separator;
-}
-
-
-std::string Quadrangle::getSides()
-{
-	const std::string s = std::to_string(sides);
-	return name + s;
+		std::cout << _name << ":" << std::endl;
+		std::cout << (checking() ? view::correct : view::wrong) << 
+			std::endl;
+		std::cout << view::count_sides << _sides << std::endl;
+		std::cout <<  std::endl;
 }
