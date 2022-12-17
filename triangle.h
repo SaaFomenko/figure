@@ -1,10 +1,15 @@
+#pragma once
+
+#if !defined(TRIANGLE_CLASS)
+#define TRIANGLE_CLASS
+
 #include "figure.h"
 
 
 class Triangle : public Figure
 {
 	protected:
-		int ideal_sides;
+		int _ideal_sides;
 		int _sum_angles;
 
 		int _a;
@@ -27,35 +32,5 @@ class Triangle : public Figure
 		void getInfo() override;
 };
 
-class RightTriangle : public Triangle
-{
-	protected:
-		bool checking() override;
+#endif
 
-	public:
-		RightTriangle(int, int, int, int, int);
-		RightTriangle();
-		virtual ~RightTriangle();
-};
-
-class IsoscelesTriangle : public Triangle
-{
-	protected:
-		bool checking() override;
-
-	public:
-		IsoscelesTriangle(int, int, int, int);
-		IsoscelesTriangle();
-		virtual ~IsoscelesTriangle();
-};
-
-class IquilateralTriangle : public Triangle
-{
-	protected:
-		bool checking() override;
-
-	public:
-		IquilateralTriangle(int);
-		IquilateralTriangle();
-		virtual ~IquilateralTriangle();
-};
