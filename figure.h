@@ -1,5 +1,3 @@
-#pragma once
-
 #if !defined(FIGURE_CLASS)
 #define FIGURE_CLASS
 
@@ -23,6 +21,21 @@ struct view
 	static const std::string D;
 };
 
+/*
+class FigureSidesException : public std::exception
+{
+	int _sides;
+
+	public:
+		
+		FigureSidesException(int);
+		virtual ~FigureSidesException();
+
+		int getSides();
+		const char* what() const noexcept override;
+};
+*/
+
 class Figure
 {
 	protected:
@@ -34,12 +47,19 @@ class Figure
 
 	public:
 		Figure();
+		Figure(int);
 		virtual ~Figure();
 
 		std::string getName();
 
 		virtual bool checking();
 		virtual void getInfo();
+};
+
+class FigureException : public Figure
+{
+	public:
+		void getInfo() override;
 };
 
 #endif
