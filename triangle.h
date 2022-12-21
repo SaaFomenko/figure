@@ -32,5 +32,15 @@ class Triangle : public Figure
 		void getInfo() override;
 };
 
+class TriangleException : std::exception
+{
+	std::string _err;
+
+	public:
+		TriangleException(std::string);
+
+		const char* what() const noexcept override;
+};
+
 #endif
 

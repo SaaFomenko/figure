@@ -35,10 +35,17 @@ Figure::Figure() : Figure("Фигура", 0)
 
 Figure::Figure(int sides) : Figure("Фигура", sides)
 {
-	if (!checking()) throw FigureException(_ideal_sides);
+	if (!checking()) throw FigureException(sides);
+	createInfo();
 }
 
 Figure::~Figure(){}
+
+void Figure::createInfo()
+{
+	std::cout << _name << " (сторон " << _sides << ") создан." <<
+		std::endl;
+}
 
 bool Figure::checking()
 {
@@ -54,5 +61,14 @@ void Figure::getInfo()
 		std::cout <<  std::endl;
 }
 
-FigureException::FigureException(int sides) : Figure("Фигура", sides)
+FigureException::FigureException(int sides) : 
+//	_sides(sides),
+	Figure("Фигура", sides)
 {}
+
+void FigureException::createInfo()
+{
+	std::cout << _name << " (сторон " << _sides << 
+		") не был создан. Причина: количество сторон не равно " << 
+		_ideal_sides << "." << std::endl;
+}

@@ -13,7 +13,15 @@
 
 int main() 
 {
-
+	try
+	{
+		Figure figure(0);
+		Figure figure1(2);
+	}
+	catch (FigureException& err)
+	{
+		err.createInfo();
+	}
 
   return 0;
 }

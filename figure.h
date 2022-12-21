@@ -54,12 +54,15 @@ class Figure
 
 		virtual bool checking();
 		virtual void getInfo();
+		virtual void createInfo();
 };
 
 class FigureException : public Figure
 {
 	public:
-		void getInfo() override;
+		FigureException(int);
+
+		void createInfo() override;
 };
 
 #endif

@@ -8,7 +8,12 @@ bool Triangle::isSum()
 {
 	int sum_angles = _A + _B + _C;
 
-	bool check = _sum_angles == sum_angles && _sides == _ideal_sides;
+	bool check = true;
+
+	if	(!_sum_angles == sum_angles)
+	{
+		std::string str = _name + " (стороны " + _a ",)"
+	}	&& _sides == _ideal_sides;
 
 	return check;
 }
