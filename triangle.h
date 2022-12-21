@@ -19,27 +19,27 @@ class Triangle : public Figure
 		int _B;
 		int _C;
 
-		bool checking() override;
-		bool isSum();
+		virtual bool isAngles();
+//		bool isSides() override;
 
-		Triangle(int, int, int, int, int, int, std::string, int);
+		virtual void errCheck(std::string&);
+
+		Triangle(int, int, int, int, int, int, std::string, int, int);
 
 	public:
+		Triangle(int, int, int, int, int, int, int);
 		Triangle(int, int, int, int, int, int);
 		Triangle();
 		virtual ~Triangle();
 
-		void getInfo() override;
+		std::string getCreate() override;
 };
 
-class TriangleException : std::exception
+class TriangleException : public FigureException
 {
-	std::string _err;
-
 	public:
 		TriangleException(std::string);
-
-		const char* what() const noexcept override;
+		virtual ~TriangleException();
 };
 
 #endif

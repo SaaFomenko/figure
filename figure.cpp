@@ -2,73 +2,57 @@
 #include "figure.h"
 
 
-const std::string view::count_sides = "Количество сторон: ";
-const std::string view::correct = "Правильная";
-const std::string view::wrong = "Неправильная";
-
-/*
-FigureSidesException::FigureSidesException(int sides) : _sides(sides)
+FigureException::FigureException(std::string str) : _err(str)
 {}
 
-int FigureSidesException::getSides()
+const char* FigureException::what() const noexcept
 {
-	return _sides;
+	return _err.c_str();
 }
 
-const char* FigureSidesException::what() const noexcept
-{
-	return "количество сторон не равно ";
-}
-*/
+FigureException::~FigureException(){}
 
 Figure::Figure(
 		std::string name,
-		int sides
+		int sides,
+		int ideal_sides
 		) :
 				_name(name),
 				_sides(sides),
-				_ideal_sides(0)
+				_ideal_sides(ideal_sides)
 {}
 
-Figure::Figure() : Figure("Фигура", 0)
+Figure::Figure() : Figure("Фигура", 0, 0)
 {}
 
-Figure::Figure(int sides) : Figure("Фигура", sides)
+Figure::Figure(int sides) : Figure("Фигура", sides, 0)
 {
-	if (!checking()) throw FigureException(sides);
-	createInfo();
+	std::cout << getCreate() << std::endl;
 }
 
 Figure::~Figure(){}
 
-void Figure::createInfo()
+std::string Figure::getCreate()
 {
-	std::cout << _name << " (сторон " << _sides << ") создан." <<
-		std::endl;
+	//std::cout << _name << " (сторон " << _sides << ") создан." <<
+	//	std::endl;
+	std::string str = _name + " (сторон " + std::to_string(_sides) + ")";
+
+	if (isSides())
+	{
+		str += " создан.";
+	}
+	else
+	{
+		str += " не создан. Причина: количество сторон не равно " +
+			std::to_string(_ideal_sides);
+		throw FigureException(str);
+	}
+
+	return str;
 }
 
-bool Figure::checking()
+bool Figure::isSides()
 {
 	return _sides == _ideal_sides;
-}
-
-void Figure::getInfo()
-{
-		std::cout << _name << ":" << std::endl;
-		std::cout << (checking() ? view::correct : view::wrong) << 
-			std::endl;
-		std::cout << view::count_sides << _sides << std::endl;
-		std::cout <<  std::endl;
-}
-
-FigureException::FigureException(int sides) : 
-//	_sides(sides),
-	Figure("Фигура", sides)
-{}
-
-void FigureException::createInfo()
-{
-	std::cout << _name << " (сторон " << _sides << 
-		") не был создан. Причина: количество сторон не равно " << 
-		_ideal_sides << "." << std::endl;
 }
