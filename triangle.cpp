@@ -2,8 +2,6 @@
 #include "triangle.h"
 
 
-const std::string TRIANGLE = "Треугольник";
-
 bool Triangle::isAngles()
 {
 	int sum_angles = _A + _B + _C;
@@ -12,13 +10,6 @@ bool Triangle::isAngles()
 
 	return check;
 }
-
-/*
-bool Triangle::isSides()
-{
-	return _sides == _ideal_sides;
-}
-*/
 
 void Triangle::errCheck(std::string& str)
 {
@@ -80,17 +71,17 @@ Triangle::Triangle(
 		int C,
 		int sides
 		) : 
-				Triangle(a, b, c, A, B, C, TRIANGLE, sides, 3)
+				Triangle(a, b, c, A, B, C, "Треугольник", sides, 3)
 {
 	std::cout << getCreate() << std::endl;
 }
 
 Triangle::Triangle(int a, int b, int c, int A, int B, int C) : 
-	Triangle(a, b, c, A, B, C, TRIANGLE, 3, 3)
+	Triangle(a, b, c, A, B, C, "Треугольник", 3, 3)
 {}
 
 Triangle::Triangle() : 
-	Triangle(10, 20, 30, 50, 60, 70, TRIANGLE, 3, 3)
+	Triangle(10, 20, 30, 50, 60, 70, "Треугольник", 3, 3)
 {}
 
 Triangle::~Triangle(){}

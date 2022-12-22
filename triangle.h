@@ -1,5 +1,3 @@
-#pragma once
-
 #if !defined(TRIANGLE_CLASS)
 #define TRIANGLE_CLASS
 
@@ -20,7 +18,6 @@ class Triangle : public Figure
 		int _C;
 
 		virtual bool isAngles();
-//		bool isSides() override;
 
 		virtual void errCheck(std::string&);
 

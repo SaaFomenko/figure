@@ -1,5 +1,3 @@
-#pragma once
-
 #if !defined(QUADRANGLE_CLASS)
 #define QUADRANGLE_CLASS
 
@@ -9,7 +7,6 @@
 class Quadrangle : public Figure
 {
 	protected:
-		int ideal_sides;
 		int _sum_angles;
 
 		int _a;
@@ -21,18 +18,27 @@ class Quadrangle : public Figure
 		int _C;
 		int _D;
 
-		bool checking() override;
-		bool isSum();
+		bool isAngles();
+		virtual void errCheck(std::string&);
 
 		Quadrangle(
 				int, int, int, int, int, int, int, int, std::string, int
 				);
 
 	public:
+		Quadrangle(int, int, int, int, int, int, int, int, int);
 		Quadrangle();
 		virtual ~Quadrangle();
 
-		void getInfo() override;
+		std::string getCreate() override;
 };
+
+class QuadrangleException : public FigureException
+{
+	public:
+		QuadrangleException(std::string);
+		virtual ~QuadrangleException();
+};
+
 
 #endif

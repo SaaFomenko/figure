@@ -2,39 +2,50 @@
 #include "quadrangle.h"
 
 
-const std::string QUADRANGLE = "Четырехугольник";
+QuadrangleException::QuadrangleException(std::string str) : 
+	FigureException(str)
+{}
 
+QuadrangleException::~QuadrangleException(){}
 
-void Quadrangle::getInfo()
-{
-		std::cout << _name << ":" << std::endl;
-		std::cout << (checking() ? view::correct : view::wrong) << 
-			std::endl;
-		std::cout << view::count_sides << _sides << std::endl;
-		std::cout << view::sides << view::a << _a << view::b <<
-			_b << view::c << _c << view::d << _d << std::endl;
-		std::cout << view::angles << view::A << _A << view::B <<
-			_B << view::C << _C << view::D << _D << std::endl;
-		std::cout <<  std::endl;
-}
-
-bool Quadrangle::isSum()
+bool Quadrangle::isAngles()
 {
 	int sum_angles = _A + _B + _C + _D;
 
-	bool check = _sum_angles == sum_angles && _sides == ideal_sides;
+	bool check = _sum_angles == sum_angles;
 
 	return check;
 }
 
-bool Quadrangle::checking()
+void Quadrangle::errCheck(std::string& str)
 {
-	return isSum();
+	if (!isSides())
+	{
+		str += " не был создан. Причина: количество сторон не равно " +
+			std::to_string(_ideal_sides) + ".";
+		throw QuadrangleException(str);
+	}
+
+	if(!isAngles())
+	{
+		str += " не был создан. Причина: сумма углов не равна " +
+			std::to_string(_sum_angles) + ".";
+		throw QuadrangleException(str);
+	}
 }
 
-Quadrangle::Quadrangle() : 
-	Quadrangle(10, 20, 30, 40, 50, 60, 70, 80, QUADRANGLE, 4)
-{}
+std::string Quadrangle::getCreate()
+{
+	std::string str = _name + " (стороны " + std::to_string(_a) +
+		", " + std::to_string(_b) + ", " + std::to_string(_c) + ", " + 
+		std::to_string(_d) + "; углы " + std::to_string(_A) + ", " + 
+		std::to_string(_B) + ", " + std::to_string(_C) + ", " + 
+		std::to_string(_D) + ")";
+
+	errCheck(str);
+
+	return str + " создан.";
+}
 
 Quadrangle::Quadrangle(
 		int a, 
@@ -56,9 +67,27 @@ Quadrangle::Quadrangle(
 				_B(B),
 				_C(C),
 				_D(D),
-				ideal_sides(4),
 				_sum_angles(360),
-				Figure(name, sides)
+				Figure(name, sides, 4)
+{}
+
+Quadrangle::Quadrangle(
+		int a, 
+		int b, 
+		int c, 
+		int d, 
+		int A, 
+		int B, 
+		int C, 
+		int D,
+		int sides
+		) : Quadrangle(a, b, c, d, A, B, C, D, "Четырехугольник", sides)
+{
+	std::cout << getCreate() << std::endl;
+}
+
+Quadrangle::Quadrangle() : 
+	Quadrangle(10, 20, 30, 40, 50, 60, 70, 80, "Четырехугольник", 4)
 {}
 
 Quadrangle::~Quadrangle(){}

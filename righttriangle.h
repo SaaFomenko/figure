@@ -1,20 +1,29 @@
-#pragma once
-
 #if !defined(RIGHTTRIANGLE_CLASS)
 #define RIGHTTRIANGLE_CLASS
 
 #include "triangle.h"
+#include "figure.h"
 
 
 class RightTriangle : public Triangle
 {
 	protected:
-		bool checking() override;
+		bool isRightAngle();
+
+		void errCheck(std::string&) override;
 
 	public:
+		RightTriangle(int, int, int, int, int, int, int);
 		RightTriangle(int, int, int, int, int);
 		RightTriangle();
 		virtual ~RightTriangle();
+};
+
+class RightTriangleException : public FigureException
+{
+	public:
+		RightTriangleException(std::string);
+		virtual ~RightTriangleException();
 };
 
 #endif
