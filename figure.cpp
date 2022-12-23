@@ -32,12 +32,8 @@ Figure::Figure(int sides) : Figure("Фигура", sides, 0)
 
 Figure::~Figure(){}
 
-std::string Figure::getCreate()
+void Figure::errCheck(std::string& str)
 {
-	//std::cout << _name << " (сторон " << _sides << ") создан." <<
-	//	std::endl;
-	std::string str = _name + " (сторон " + std::to_string(_sides) + ")";
-
 	if (isSides())
 	{
 		str += " создан.";
@@ -48,6 +44,13 @@ std::string Figure::getCreate()
 			std::to_string(_ideal_sides);
 		throw FigureException(str);
 	}
+}
+
+std::string Figure::getCreate()
+{
+	std::string str = _name + " (сторон " + std::to_string(_sides) + ")";
+
+	errCheck(str);
 
 	return str;
 }

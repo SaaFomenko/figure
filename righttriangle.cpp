@@ -3,12 +3,6 @@
 #include "figure.h"
 
 
-RightTriangleException::RightTriangleException(std::string str) :
-	FigureException(str)
-{}
-
-RightTriangleException::~RightTriangleException(){}
-
 bool RightTriangle::isRightAngle()
 {
 	return _C == _sum_angles/2;
@@ -20,21 +14,21 @@ void RightTriangle::errCheck(std::string& str)
 	{
 		std::string str_C = std::to_string(_sum_angles/2);
 		str += " не был создан. Причина: угол С неравен " + str_C + ".";
-		throw RightTriangleException(str);
+		throw FigureException(str);
 	}
 
 	if (!isSides())
 	{
 		str += " не был создан. Причина: количество сторон не равно " +
 			std::to_string(_ideal_sides) + ".";
-		throw RightTriangleException(str);
+		throw FigureException(str);
 	}
 
 	if(!isAngles())
 	{
 		str += " не был создан. Причина: сумма углов не равна " +
 			std::to_string(_sum_angles) + ".";
-		throw RightTriangleException(str);
+		throw FigureException(str);
 	}
 }
 

@@ -2,7 +2,6 @@
 #define IQUILATERALTRIANGLE_CLASS
 
 #include "triangle.h"
-#include "figure.h"
 
 
 class IquilateralTriangle : public Triangle
@@ -18,13 +17,6 @@ class IquilateralTriangle : public Triangle
 		IquilateralTriangle(int);
 		IquilateralTriangle();
 		virtual ~IquilateralTriangle();
-};
-
-class IquilateralTriangleException : public FigureException
-{
-	public:
-		IquilateralTriangleException(std::string);
-		virtual ~IquilateralTriangleException();
 };
 
 #endif

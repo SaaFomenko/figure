@@ -2,7 +2,6 @@
 #define RIGHTQUADRANGLE_CLASS
 
 #include "quadrangle.h"
-#include "figure.h"
 
 
 class RightQuadrangle : public Quadrangle
@@ -18,13 +17,6 @@ class RightQuadrangle : public Quadrangle
 		RightQuadrangle(int, int);
 		RightQuadrangle();
 		virtual ~RightQuadrangle();
-};
-
-class RightQuadrangleException : public FigureException
-{
-	public:
-		RightQuadrangleException(std::string);
-		virtual ~RightQuadrangleException();
 };
 
 #endif

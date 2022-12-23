@@ -33,12 +33,4 @@ class Quadrangle : public Figure
 		std::string getCreate() override;
 };
 
-class QuadrangleException : public FigureException
-{
-	public:
-		QuadrangleException(std::string);
-		virtual ~QuadrangleException();
-};
-
-
 #endif

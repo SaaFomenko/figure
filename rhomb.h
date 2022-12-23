@@ -1,5 +1,3 @@
-#pragma once
-
 #if !defined(RHOMB_CLASS)
 #define QUADRATE_CLASS
 
@@ -9,11 +7,15 @@
 class Rhomb : public Quadrangle
 {
 	protected:
-		bool checking() override;
+		bool isEqualSides();
+		bool isEqualAngles();
+
+		void errCheck(std::string&) override;
 
 	public:
-		Rhomb();
+		Rhomb(int, int, int, int, int, int, int, int, int);
 		Rhomb(int, int, int);
+		Rhomb();
 		virtual ~Rhomb();
 };
 

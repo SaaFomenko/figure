@@ -19,11 +19,4 @@ class RightTriangle : public Triangle
 		virtual ~RightTriangle();
 };
 
-class RightTriangleException : public FigureException
-{
-	public:
-		RightTriangleException(std::string);
-		virtual ~RightTriangleException();
-};
-
 #endif

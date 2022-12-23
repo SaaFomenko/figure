@@ -1,5 +1,6 @@
 #include <iostream>
 #include "triangle.h"
+#include "figure.h"
 
 
 bool Triangle::isAngles()
@@ -17,14 +18,14 @@ void Triangle::errCheck(std::string& str)
 	{
 		str += " не был создан. Причина: количество сторон не равно " +
 			std::to_string(_ideal_sides) + ".";
-		throw TriangleException(str);
+		throw FigureException(str);
 	}
 
 	if(!isAngles())
 	{
 		str += " не был создан. Причина: сумма углов не равна " +
 			std::to_string(_sum_angles) + ".";
-		throw TriangleException(str);
+		throw FigureException(str);
 	}
 }
 
@@ -57,7 +58,6 @@ Triangle::Triangle(
 				_A(A),
 				_B(B),
 				_C(C),
-				_ideal_sides(ideal_sides),
 				_sum_angles(180),
 				Figure(name, sides, ideal_sides)
 {}
@@ -85,8 +85,3 @@ Triangle::Triangle() :
 {}
 
 Triangle::~Triangle(){}
-
-TriangleException::TriangleException(std::string str) : FigureException(str)
-{}
-
-TriangleException::~TriangleException(){}

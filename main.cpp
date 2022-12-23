@@ -7,54 +7,26 @@
 #include "quadrangle.h"
 #include "rightquadrangle.h"
 #include "quadrate.h"
-/*
 #include "parallelogram.h"
 #include "rhomb.h"
-*/
 
 
 int main() 
 {
-//	std::string triangle_name = "Треугольник";
 
 	try
 	{
 		Figure figure(0);
-		IquilateralTriangle triangle(20, 20, 20, 60, 60, 60, 3);
+		Triangle triangle(10, 20, 30, 50, 60, 70, 3);
+		RightTriangle righttriangle(10, 20, 30, 30, 60, 90, 3);
+		IsoscelesTriangle isoscelestriangle(20, 30, 20, 30, 120, 30, 3);
+		IquilateralTriangle iquilateraltriangle(20, 20, 20, 60, 60, 60, 3);
 		Quadrangle quadrangle(10, 20, 30, 40, 60, 70, 80, 150, 4);
-		Quadrangle quadrangle1(10, 20, 30, 40, 70, 100, 80, 110, 4);
 		RightQuadrangle rightquadrangle(10, 20, 10, 20, 90, 90, 90, 90, 4);
-		RightQuadrangle rightquadrangle1(30, 20, 30, 20, 90, 90, 90, 90, 4);
 		Quadrate quadrate(20, 20, 20, 20, 90, 90, 90, 90, 4);
-		Quadrate quadrate1(10, 20, 30, 40, 70, 100, 80, 110, 4);
-	}
-	catch (QuadrateException& err)
-	{
-		std::cout << err.what() << std::endl;
-	}
-	catch (RightQuadrangleException& err)
-	{
-		std::cout << err.what() << std::endl;
-	}
-	catch (QuadrangleException& err)
-	{
-		std::cout << err.what() << std::endl;
-	}
-	catch (IquilateralTriangleException& err)
-	{
-		std::cout << err.what() << std::endl;
-	}
-	catch (IsoscelesTriangleException& err)
-	{
-		std::cout << err.what() << std::endl;
-	}
-	catch (RightTriangleException& err)
-	{
-		std::cout << err.what() << std::endl;
-	}
-	catch (TriangleException& err)
-	{
-		std::cout << err.what() << std::endl;
+		Parallelogram parallelogram(30, 20, 30, 20, 45, 135, 45, 135, 4);
+		Rhomb rhomb(30, 30, 30, 30, 45, 135, 45, 135, 4);
+		Rhomb rhomb1(30, 30, 30, 30, 45, 135, 45, 145, 4);
 	}
 	catch (FigureException& err)
 	{

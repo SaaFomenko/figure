@@ -1,12 +1,7 @@
 #include <iostream>
 #include "isoscelestriangle.h"
+#include "figure.h"
 
-
-IsoscelesTriangleException::IsoscelesTriangleException(std::string str) :
-	FigureException(str)
-{}
-
-IsoscelesTriangleException::~IsoscelesTriangleException(){}
 
 bool IsoscelesTriangle::isIsoscelesSide()
 {
@@ -22,28 +17,28 @@ void IsoscelesTriangle::errCheck(std::string& str)
 {
 	if (!isIsoscelesSide())
 	{
-		str += " не был создан. Причина: сторона \"a\" не равна \"b\".";
-		throw IsoscelesTriangleException(str);
+		str += " не был создан. Причина: сторона \"a\" не равна \"c\".";
+		throw FigureException(str);
 	}
 
 	if (!isIsoscelesAngle())
 	{
 		str += " не был создан. Причина: угол A не равен C.";
-		throw IsoscelesTriangleException(str);
+		throw FigureException(str);
 	}
 
 	if (!isSides())
 	{
 		str += " не был создан. Причина: количество сторон не равно " +
 			std::to_string(_ideal_sides) + ".";
-		throw IsoscelesTriangleException(str);
+		throw FigureException(str);
 	}
 
 	if(!isAngles())
 	{
 		str += " не был создан. Причина: сумма углов не равна " +
 			std::to_string(_sum_angles) + ".";
-		throw IsoscelesTriangleException(str);
+		throw FigureException(str);
 	}
 }
 
@@ -69,5 +64,3 @@ IsoscelesTriangle::IsoscelesTriangle() :
 {}
 
 IsoscelesTriangle::~IsoscelesTriangle(){}
-
-

@@ -2,7 +2,6 @@
 #define QUADRATE_CLASS
 
 #include "quadrangle.h"
-#include "figure.h"
 
 
 class Quadrate : public Quadrangle
@@ -19,13 +18,6 @@ class Quadrate : public Quadrangle
 		Quadrate(int);
 		Quadrate();
 		virtual ~Quadrate();
-};
-
-class QuadrateException : public FigureException
-{
-	public:
-		QuadrateException(std::string);
-		virtual ~QuadrateException();
 };
 
 #endif

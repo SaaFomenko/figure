@@ -7,7 +7,6 @@
 class Triangle : public Figure
 {
 	protected:
-		int _ideal_sides;
 		int _sum_angles;
 
 		int _a;
@@ -19,7 +18,7 @@ class Triangle : public Figure
 
 		virtual bool isAngles();
 
-		virtual void errCheck(std::string&);
+		virtual void errCheck(std::string&) override;
 
 		Triangle(int, int, int, int, int, int, std::string, int, int);
 
@@ -30,13 +29,6 @@ class Triangle : public Figure
 		virtual ~Triangle();
 
 		std::string getCreate() override;
-};
-
-class TriangleException : public FigureException
-{
-	public:
-		TriangleException(std::string);
-		virtual ~TriangleException();
 };
 
 #endif

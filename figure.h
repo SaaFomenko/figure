@@ -23,6 +23,9 @@ class Figure
 		int _sides;
 		std::string _name;
 	
+		bool isSides();
+		virtual void errCheck(std::string&);
+
 		Figure(std::string, int, int);
 
 	public:
@@ -32,7 +35,6 @@ class Figure
 
 		std::string getName();
 
-		virtual bool isSides();
 		virtual std::string getCreate();
 };
 

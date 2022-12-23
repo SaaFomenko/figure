@@ -9,11 +9,15 @@
 class Parallelogram : public Quadrangle
 {
 	protected:
-		bool checking() override;
+		bool isEqualSides();
+		bool isEqualAngles();
+
+		void errCheck(std::string&) override;
 
 	public:
-		Parallelogram();
+		Parallelogram(int, int, int, int, int, int, int, int, int);
 		Parallelogram(int, int, int, int);
+		Parallelogram();
 		virtual ~Parallelogram();
 };
 

@@ -1,12 +1,7 @@
 #include <iostream>
 #include "rightquadrangle.h"
+#include "figure.h"
 
-
-RightQuadrangleException::RightQuadrangleException(std::string str) : 
-	FigureException(str)
-{}
-
-RightQuadrangleException::~RightQuadrangleException(){}
 
 bool RightQuadrangle::isEqualSides()
 {
@@ -26,28 +21,28 @@ void RightQuadrangle::errCheck(std::string& str)
 	if (!isEqualSides())
 	{
 		str += " не был создан. Причина: стороны a,c и b,d попарно не равны.";
-		throw RightQuadrangleException(str);
+		throw FigureException(str);
 	}
 
 	if (!isEqualAngles())
 	{
 		std::string angle_str = std::to_string(_sum_angles / _ideal_sides);
 		str += " не был создан. Причина: углы не равны " + angle_str + ".";
-		throw RightQuadrangleException(str);
+		throw FigureException(str);
 	}
 
 	if (!isSides())
 	{
 		str += " не был создан. Причина: количество сторон не равно " +
 			std::to_string(_ideal_sides) + ".";
-		throw RightQuadrangleException(str);
+		throw FigureException(str);
 	}
 
 	if(!isAngles())
 	{
 		str += " не был создан. Причина: сумма углов не равна " +
 			std::to_string(_sum_angles) + ".";
-		throw QuadrangleException(str);
+		throw FigureException(str);
 	}
 }
 

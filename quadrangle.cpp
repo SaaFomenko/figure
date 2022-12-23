@@ -1,12 +1,7 @@
 #include <iostream>
 #include "quadrangle.h"
+#include "figure.h"
 
-
-QuadrangleException::QuadrangleException(std::string str) : 
-	FigureException(str)
-{}
-
-QuadrangleException::~QuadrangleException(){}
 
 bool Quadrangle::isAngles()
 {
@@ -23,14 +18,14 @@ void Quadrangle::errCheck(std::string& str)
 	{
 		str += " не был создан. Причина: количество сторон не равно " +
 			std::to_string(_ideal_sides) + ".";
-		throw QuadrangleException(str);
+		throw FigureException(str);
 	}
 
 	if(!isAngles())
 	{
 		str += " не был создан. Причина: сумма углов не равна " +
 			std::to_string(_sum_angles) + ".";
-		throw QuadrangleException(str);
+		throw FigureException(str);
 	}
 }
 

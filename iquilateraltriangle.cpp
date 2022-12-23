@@ -1,12 +1,7 @@
 #include <iostream>
 #include "iquilateraltriangle.h"
+#include "figure.h"
 
-
-IquilateralTriangleException::IquilateralTriangleException(std::string str) : 
-	FigureException(str)
-{}
-
-IquilateralTriangleException::~IquilateralTriangleException(){}
 
 bool IquilateralTriangle::isEqualSides()
 {
@@ -29,28 +24,28 @@ void IquilateralTriangle::errCheck(std::string& str)
 	if (!isEqualSides())
 	{
 		str += " не был создан. Причина: стороны не равны.";
-		throw IquilateralTriangleException(str);
+		throw FigureException(str);
 	}
 
 	if (!isEqualAngles())
 	{
 		std::string angle_str = std::to_string(_sum_angles / _ideal_sides);
 		str += " не был создан. Причина: уголы не равны " + angle_str + ".";
-		throw IquilateralTriangleException(str);
+		throw FigureException(str);
 	}
 
 	if (!isSides())
 	{
 		str += " не был создан. Причина: количество сторон не равно " +
 			std::to_string(_ideal_sides) + ".";
-		throw IquilateralTriangleException(str);
+		throw FigureException(str);
 	}
 
 	if(!isAngles())
 	{
 		str += " не был создан. Причина: сумма углов не равна " +
 			std::to_string(_sum_angles) + ".";
-		throw IquilateralTriangleException(str);
+		throw FigureException(str);
 	}
 
 }

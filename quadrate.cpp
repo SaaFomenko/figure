@@ -1,12 +1,7 @@
 #include <iostream>
 #include "quadrate.h"
+#include "figure.h"
 
-
-QuadrateException::QuadrateException(std::string str) : 
-	FigureException(str)
-{}
-
-QuadrateException::~QuadrateException(){}
 
 bool Quadrate::isEqualSides()
 {
@@ -26,28 +21,28 @@ void Quadrate::errCheck(std::string& str)
 	if (!isEqualSides())
 	{
 		str += " не был создан. Причина: стороны не равны.";
-		throw QuadrateException(str);
+		throw FigureException(str);
 	}
 
 	if (!isEqualAngles())
 	{
 		std::string angle_str = std::to_string(_sum_angles / _ideal_sides);
 		str += " не был создан. Причина: углы не равны " + angle_str + ".";
-		throw QuadrateException(str);
+		throw FigureException(str);
 	}
 
 	if (!isSides())
 	{
 		str += " не был создан. Причина: количество сторон не равно " +
 			std::to_string(_ideal_sides) + ".";
-		throw QuadrateException(str);
+		throw FigureException(str);
 	}
 
 	if(!isAngles())
 	{
 		str += " не был создан. Причина: сумма углов не равна " +
 			std::to_string(_sum_angles) + ".";
-		throw QuadrateException(str);
+		throw FigureException(str);
 	}
 }
 
